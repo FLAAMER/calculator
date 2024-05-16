@@ -18,7 +18,7 @@ let num1
 let num2
 let operator
 
-function operate(num1, num2, operator) {
+function operate(num1, operator, num2) {
     if (operator === "+") {
         add(num1, num2)
     } else if (operator === "-") {
@@ -26,6 +26,6 @@ function operate(num1, num2, operator) {
     } else if (operator === "*") {
         multiply(num1, num2)
     } else if (operator === "/") {
-        divide(num1, num2)
+        
     }
 }
