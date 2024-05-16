@@ -36,6 +36,7 @@ div#display {
 
 div#display-number {
     margin: 90px 10px 10px 0px;
+    text-wrap: wrap;
 }
 
 div#operations {
