@@ -114,11 +114,6 @@ operationButtons.forEach((button) => button.addEventListener("click", () => {
         if (num2 === "TBD") {
             num2 = displayValue.textContent
             displayValue.textContent = Math.round((operate(num1 , operator, num2) + Number.EPSILON)*10000)/10000
-            console.log(num1)
-            console.log(operator)
-            console.log(num2)
-            console.log(operate(num1 , operator, num2))
-            console.log(equalButton)
             operator = ""
         }
     })}))
@@ -138,5 +133,63 @@ backspaceButton.addEventListener("click", () => {
     displayValue.textContent = (Array.from(displayValue.textContent).slice(0, -1).join(""))
     if (displayValue.textContent === "") {
         displayValue.textContent = 0
+    }
+})
+
+document.addEventListener("keydown", (e) => {
+    switch (e.key) {
+        case "1":
+            document.querySelector("div#one").click()
+            break;
+        case "2":
+            document.querySelector("div#two").click()
+            break;
+        case "3":
+            document.querySelector("div#three").click()
+            break;
+        case "4":
+            document.querySelector("div#four").click()
+            break;
+        case "5":
+            document.querySelector("div#five").click()
+            break;
+        case "6":
+            document.querySelector("div#six").click()
+            break;
+        case "7":
+            document.querySelector("div#seven").click()
+            break;
+        case "8":
+            document.querySelector("div#eight").click()
+            break;
+        case "9":
+            document.querySelector("div#nine").click()
+            break;
+        case "0":
+            document.querySelector("div#zero").click()
+            break;
+        case ".":
+            document.querySelector("div#decimal").click()
+            break;
+        case "+":
+            document.querySelector("div#add").click()
+            break;
+        case "-":
+            document.querySelector("div#subtract").click()
+            break;
+        case "*":
+            document.querySelector("div#multiply").click()
+            break;
+        case "/":
+            document.querySelector("div#divide").click()
+            break;
+        case "Enter":
+            document.querySelector("div#equal").click()
+            break;
+        case "Backspace":
+            document.querySelector("div#backspace").click()
+            break;
+        default:
+            break;
     }
 })
