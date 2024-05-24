@@ -12,7 +12,7 @@ function multiply(num1, num2) {
 
 function divide(num1, num2) {
     if (num2 == 0) {
-        return "Dividing by zero is not possible";
+        return "x/0 is impossile";
     } else {
         return num1/num2;
     }
@@ -45,6 +45,13 @@ calcNumberButtons.forEach((button) => button.addEventListener("click", () => {
     displayValue.textContent += button.textContent
 }}))
 
+calcNumberButtons.forEach((button) => button.addEventListener("click", () => {
+    operationButtons.forEach((button) => {
+        button.style.backgroundColor = "#FF9500"
+        button.style.color = "white"
+    })
+}))
+
 let displayValue = document.querySelector("div#display-number")
 let calcButtons = document.querySelectorAll("div.calc-button")
 
@@ -60,6 +67,10 @@ clearButton.addEventListener("click", () => {
     num1 = ""
     operator = ""
     num2 = ""
+    operationButtons.forEach((button) => {
+        button.style.backgroundColor = "#FF9500"
+        button.style.color = "white"
+    })
 })
 
 let invertButton  = document.querySelector("div#invert")
@@ -73,6 +84,15 @@ invertButton.addEventListener("click", () => {
 
 let percentButton = document.querySelector("div#percent")
 percentButton.addEventListener("click", () => displayValue.textContent /= 100)
+
+let equalButton = document.querySelector("div.equal")
+equalButton.addEventListener("click", () => {
+    operationButtons.forEach((button) => {
+        button.style.backgroundColor = "#FF9500"
+        button.style.color = "white"
+    })
+})
+
 
 let operationButtons = document.querySelectorAll("div.operation")
 operationButtons = Array.from(operationButtons)
@@ -90,17 +110,25 @@ operationButtons.forEach((button) => button.addEventListener("click", () => {
     operator = button.textContent
     num2 = "TBD"
     console.log(num1)
-    let equalButtons = document.querySelectorAll("div.equal")
-    Array.from(equalButtons).forEach((button) => button.addEventListener("click", () => {
+    equalButton.addEventListener("click", () => {
         if (num2 === "TBD") {
             num2 = displayValue.textContent
-            displayValue.textContent = Math.round((operate(num1 , operator, num2) + Number.EPSILON)*100)/100
+            displayValue.textContent = Math.round((operate(num1 , operator, num2) + Number.EPSILON)*10000)/10000
             console.log(num1)
             console.log(operator)
             console.log(num2)
             console.log(operate(num1 , operator, num2))
-            console.log(equalButtons)
+            console.log(equalButton)
             operator = ""
         }
-    }))
+    })}))
+
+
+operationButtons.forEach((button) => button.addEventListener("click", () => {
+    operationButtons.forEach((button) => {
+        button.style.backgroundColor = "#FF9500"
+        button.style.color = "white"
+    })
+    button.style.backgroundColor = "white"
+    button.style.color = "#FF9500"
 }))
