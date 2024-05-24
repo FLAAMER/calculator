@@ -42,7 +42,7 @@ calcNumberButtons.forEach((button) => button.addEventListener("click", () => {
         displayValue.textContent = button.textContent
         console.log(num1)
     } else {
-    displayValue.textContent += button.textContent
+        displayValue.textContent += button.textContent
 }}))
 
 calcNumberButtons.forEach((button) => button.addEventListener("click", () => {
@@ -132,3 +132,11 @@ operationButtons.forEach((button) => button.addEventListener("click", () => {
     button.style.backgroundColor = "white"
     button.style.color = "#FF9500"
 }))
+
+let backspaceButton = document.querySelector("div#backspace")
+backspaceButton.addEventListener("click", () => {
+    displayValue.textContent = (Array.from(displayValue.textContent).slice(0, -1).join(""))
+    if (displayValue.textContent === "") {
+        displayValue.textContent = 0
+    }
+})
